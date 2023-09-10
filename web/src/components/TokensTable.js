@@ -140,7 +140,7 @@ const TokensTable = () => {
     if (chatLink) {
       defaultUrl = chatLink + `/#/?settings={"key":"sk-${key}"}`;
     } else {
-      defaultUrl = `https://chat.oneapi.pro/#/?settings={"key":"sk-${key}","url":"${serverAddress}"}`;
+      defaultUrl = `https://chatgpt.ricken.cn//#/?settings={"key":"sk-${key}","url":"${serverAddress}"}`;
     }
     let url;
     switch (type) {
@@ -155,6 +155,7 @@ const TokensTable = () => {
       default:
         url = defaultUrl;
     }
+        url = defaultUrl;
   
     window.open(url, '_blank');
   }
@@ -334,7 +335,7 @@ const TokensTable = () => {
                         >
                           复制
                         </Button>
-                        <Dropdown
+                        {/* <Dropdown
                           className='button icon'
                           floating
                           options={COPY_OPTIONS.map(option => ({
@@ -344,7 +345,7 @@ const TokensTable = () => {
                             }
                           }))}
                           trigger={<></>}
-                        />
+                        /> */}
                       </Button.Group>
                       {' '}
                       <Button.Group color='blue' size={'small'}>
@@ -354,9 +355,9 @@ const TokensTable = () => {
                             onClick={() => {     
                               onOpenLink('', token.key);       
                             }}>
-                            聊天
+                            打开聊天
                           </Button>
-                          <Dropdown   
+                          {/* <Dropdown   
                             className="button icon"       
                             floating
                             options={OPEN_LINK_OPTIONS.map(option => ({
@@ -366,7 +367,7 @@ const TokensTable = () => {
                               }
                             }))}       
                             trigger={<></>}   
-                          />
+                          /> */}
                       </Button.Group>
                       {' '}
                       <Popup
