@@ -126,9 +126,10 @@ const Header = () => {
           <Container>
             <Menu.Item as={Link} to='/'>
               <img
+                id='icon_logo'
                 src={logo}
                 alt='logo'
-                style={{ marginRight: '0.75em', width: '2em' }}
+                style={{ marginRight: '0.75em'}}
               />
               <div style={{ fontSize: '20px' }}>
                 <b>{systemName}</b>
