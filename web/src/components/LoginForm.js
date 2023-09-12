@@ -85,7 +85,8 @@ const LoginForm = () => {
     <Grid textAlign='center' style={{ marginTop: '48px' }}>
       <Grid.Column style={{ maxWidth: 450 }}>
         <Header as='h2' color='' textAlign='center'>
-          <Image src={logo} /> 用户登录
+          {/* <Image src={logo} /> 用户登录 */}
+          用户登录
         </Header>
         <Form size='large'>
           <Segment>
