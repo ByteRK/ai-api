@@ -128,7 +128,7 @@ const Header = () => {
               <img
                 src={logo}
                 alt='logo'
-                style={{ marginRight: '0.75em' }}
+                style={{ marginRight: '0.75em', width: '25px' }}
               />
               <div style={{ fontSize: '20px' }}>
                 <b>{systemName}</b>
