@@ -140,8 +140,8 @@ const TokensTable = () => {
     if (chatLink) {
       defaultUrl = chatLink + `/#/?settings={"key":"sk-${key}","url":"${serverAddress}"}`;
     } else {
-      // defaultUrl = `https://chatgpt.ricken.cn//#/?settings={"key":"sk-${key}","url":"${serverAddress}"}`;
-      defaultUrl = `https://chatgpt.ricken.cn//#/?settings={"key":"sk-${key}"}`;
+      // defaultUrl = `https://chatgpt.ricken.cn/#/?settings={"key":"sk-${key}","url":"${serverAddress}"}`;
+      defaultUrl = `https://chatgpt.ricken.cn/#/?settings={"key":"sk-${key}"}`;
     }
     let url;
     switch (type) {
