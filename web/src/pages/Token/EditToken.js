@@ -88,6 +88,7 @@ const EditToken = () => {
         showSuccess('令牌创建成功，请在列表页面点击复制获取令牌！');
         setInputs(originInputs);
       }
+      handleCancel();
     } else {
       showError(message);
     }

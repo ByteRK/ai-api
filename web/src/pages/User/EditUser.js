@@ -77,6 +77,7 @@ const EditUser = () => {
     const { success, message } = res.data;
     if (success) {
       showSuccess('用户信息更新成功！');
+      handleCancel();
     } else {
       showError(message);
     }

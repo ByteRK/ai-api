@@ -204,6 +204,7 @@ const EditChannel = () => {
         showSuccess('渠道创建成功！');
         setInputs(originInputs);
       }
+      handleCancel();
     } else {
       showError(message);
     }
