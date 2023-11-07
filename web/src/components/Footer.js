@@ -37,7 +37,7 @@ const Footer = () => {
           ></div>
         ) : (
           <div className='custom-footer'>
-            <a
+            {/* <a
               href='https://github.com/songquanpeng/one-api'
               target='_blank'
             >
@@ -50,7 +50,7 @@ const Footer = () => {
             构建，源代码遵循{' '}
             <a href='https://opensource.org/licenses/mit-license.php'>
               MIT 协议
-            </a>
+            </a> */}
           </div>
         )}
       </Container>
