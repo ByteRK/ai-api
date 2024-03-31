@@ -3,9 +3,10 @@ package middleware
 import (
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
+	"github.com/songquanpeng/one-api/common"
+	"github.com/songquanpeng/one-api/common/blacklist"
+	"github.com/songquanpeng/one-api/model"
 	"net/http"
-	"one-api/common"
-	"one-api/model"
 	"strings"
 )
 
@@ -42,11 +43,14 @@ func authHelper(c *gin.Context, minRole int) {
 			return
 		}
 	}
-	if status.(int) == common.UserStatusDisabled {
+	if status.(int) == common.UserStatusDisabled || blacklist.IsUserBanned(id.(int)) {
 		c.JSON(http.StatusOK, gin.H{
 			"success": false,
 			"message": "用户已被封禁",
 		})
+		session := sessions.Default(c)
+		session.Clear()
+		_ = session.Save()
 		c.Abort()
 		return
 	}
@@ -99,22 +103,16 @@ func TokenAuth() func(c *gin.Context) {
 			abortWithMessage(c, http.StatusInternalServerError, err.Error())
 			return
 		}
-		if !userEnabled {
+		if !userEnabled || blacklist.IsUserBanned(token.UserId) {
 			abortWithMessage(c, http.StatusForbidden, "用户已被封禁")
 			return
 		}
 		c.Set("id", token.UserId)
 		c.Set("token_id", token.Id)
 		c.Set("token_name", token.Name)
-		requestURL := c.Request.URL.String()
-		consumeQuota := true
-		if strings.HasPrefix(requestURL, "/v1/models") {
-			consumeQuota = false
-		}
-		c.Set("consume_quota", consumeQuota)
 		if len(parts) > 1 {
 			if model.IsAdmin(token.UserId) {
-				c.Set("channelId", parts[1])
+				c.Set("specific_channel_id", parts[1])
 			} else {
 				abortWithMessage(c, http.StatusForbidden, "普通用户不支持指定渠道")
 				return
