@@ -109,7 +109,7 @@ const RegisterForm = () => {
         <Layout.Header>
         </Layout.Header>
         <Layout.Content>
-          <div style={{ justifyContent: 'center', display: 'flex', marginTop: 120 }}>
+          <div style={{ justifyContent: 'center', display: 'flex', marginTop: 90 }}>
             <div style={{ width: 500 }}>
               <Card>
                 <Title heading={2} style={{ textAlign: 'center' }}>
@@ -117,14 +117,12 @@ const RegisterForm = () => {
                 </Title>
                 <Form>
                   <Form.Input
-                    field={'username'}
                     prefix={<IconUser />}
                     placeholder="输入用户名，最长 12 位"
                     onChange={(value) => handleChange('username', value)}
                     name="username"
                   />
                   <Form.Input
-                    field={'password'}
                     prefix={<IconLock />}
                     placeholder="输入密码，最短 8 位，最长 20 位"
                     onChange={(value) => handleChange('password', value)}
@@ -132,7 +130,6 @@ const RegisterForm = () => {
                     mode="password"
                   />
                   <Form.Input
-                    field={'password2'}
                     prefix={<IconLock />}
                     placeholder="输入密码，最短 8 位，最长 20 位"
                     onChange={(value) => handleChange('password2', value)}
@@ -142,7 +139,6 @@ const RegisterForm = () => {
                   {showEmailVerification ? (
                     <>
                       <Form.Input
-                        field={'email'}
                         prefix={<IconMail />}
                         placeholder="输入邮箱地址"
                         onChange={(value) => handleChange('email', value)}
@@ -155,7 +151,6 @@ const RegisterForm = () => {
                         }
                       />
                       <Form.Input
-                        field={'verification_code'}
                         prefix={<IconLock />}
                         placeholder="输入验证码"
                         onChange={(value) => handleChange('verification_code', value)}
