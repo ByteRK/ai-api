@@ -120,7 +120,6 @@ var ValidThemes = map[string]bool{
 	"default": true,
 	"berry":   true,
 	"air":     true,
-	"kk-air":     true,
 }
 
 // All duration's unit is seconds
