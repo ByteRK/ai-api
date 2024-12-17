@@ -25,7 +25,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v4
         with:
-          images: byterk/one-api
+          images: byterk/ai-api
           tags: |
             type=raw,value=latest
             type=ref,event=tag
